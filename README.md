@@ -65,7 +65,21 @@ Chunk 1: "Hello \uD83D"     // High surrogate at end
 Chunk 2: "\uDE80 World"     // Low surrogate at start
 ```
 
-Standard TextEncoder breaks this into replacement characters. This library buffers the high surrogate until the next chunk arrives.
+**Standard TextEncoder result:**
+```
+encode(chunk1) → "Hello �"      // Broken! High surrogate becomes �
+encode(chunk2) → "� World"      // Broken! Low surrogate becomes �
+Final result:    "Hello � � World"
+```
+
+**This library result:**
+```
+encode(chunk1, {stream: true}) → "Hello "     // High surrogate buffered
+encode(chunk2, {stream: true}) → "🚀 World"   // Combined into correct emoji
+Final result:                    "Hello 🚀 World"
+```
+
+This library buffers the high surrogate until the next chunk arrives.
 
 ## License
 
