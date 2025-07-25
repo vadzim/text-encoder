@@ -1,0 +1,56 @@
+{
+  "name": "text-encoder",
+  "version": "1.0.0",
+  "description": "TextEncoder implementation with stream support for proper surrogate pair handling",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run format:check && npm run lint && npm run typecheck && npm run test",
+    "ci:fix": "npm run format && npm run lint:fix && npm run typecheck && npm run test",
+    "prepublishOnly": "npm run ci && npm run build"
+  },
+  "keywords": [
+    "text-encoder",
+    "unicode",
+    "utf-8",
+    "stream",
+    "surrogate-pairs",
+    "typescript"
+  ],
+  "author": {
+    "name": "vadzim",
+    "email": "vadzimzienka@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadzim/text-encoder.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=14.6.0"
+  }
+}
