@@ -2,7 +2,7 @@
 
 This is a replacement for the standard TextEncoder with fixed **surrogate pairs (emojis)** support.
 
-The standard TextEncoder can't handle Unicode **surrogate pairs (emojis)** that are split across chunks when streaming data. This library fixes that by adding a `stream` option that properly buffers incomplete surrogate pairs.
+The standard TextEncoder can't handle Unicode surrogate pairs (emojis) that are split across chunks when streaming data. This library fixes that by adding a `stream` option that properly buffers incomplete surrogate pairs, just like that in standard TextDecoder class.
 
 **✅ 92% test coverage with 28 comprehensive test cases covering all edge cases**
 
