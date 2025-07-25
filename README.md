@@ -33,17 +33,17 @@ const part1 = '\uD835'  // High surrogate
 const part2 = '\uDD73'  // Low surrogate
 
 // Without stream mode - broken
-encoder.encode(part1) // ❌ [239, 191, 189] (replacement character)
-encoder.encode(part2) // ❌ [239, 191, 189] (replacement character)
+bytes1 = encoder.encode(part1) // ❌ [239, 191, 189] (replacement character)
+bytes2 = encoder.encode(part2) // ❌ [239, 191, 189] (replacement character)
 
 // With stream mode - fixed
-encoder.encode(part1, { stream: true }) // ✅ [] (buffered)
-encoder.encode(part2, { stream: true }) // ✅ [240, 157, 149, 179] (correct 𝕳)
+bytes1 = encoder.encode(part1, { stream: true }) // ✅ [] (buffered)
+bytes2 = encoder.encode(part2, { stream: true }) // ✅ [240, 157, 149, 179] (correct 𝕳)
 
 // End stream to flush any pending data
-encoder.encode('', { stream: false })
+rest = encoder.encode('', { stream: false })
 // or just
-encoder.encode()
+rest = encoder.encode()
 ```
 
 ## API
