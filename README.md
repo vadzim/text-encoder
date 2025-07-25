@@ -41,7 +41,9 @@ encoder.encode(part1, { stream: true }) // ✅ [] (buffered)
 encoder.encode(part2, { stream: true }) // ✅ [240, 157, 149, 179] (correct 𝕳)
 
 // End stream to flush any pending data
-encoder.encode('', { stream: false }) // or just encoder.encode('')
+encoder.encode('', { stream: false })
+// or just
+encoder.encode()
 ```
 
 ## API
