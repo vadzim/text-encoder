@@ -13,7 +13,7 @@ A TypeScript implementation of TextEncoder with streaming support for proper sur
 ## Installation
 
 ```bash
-npm install text-encoder
+npm install text-encoder-2
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install text-encoder
 ### Basic Usage
 
 ```typescript
-import { TextEncoder } from 'text-encoder'
+import { TextEncoder } from 'text-encoder-2'
 
 const encoder = new TextEncoder()
 const encoded = encoder.encode('Hello, World!')
@@ -33,7 +33,7 @@ console.log(encoded) // Uint8Array(13) [72, 101, 108, 108, 111, 44, 32, 87, 111,
 The key feature of this library is the stream mode, which properly handles Unicode surrogate pairs that might be split across chunk boundaries:
 
 ```typescript
-import { TextEncoder } from 'text-encoder'
+import { TextEncoder } from 'text-encoder-2'
 
 const encoder = new TextEncoder()
 
@@ -219,7 +219,7 @@ This library is written in TypeScript with the strictest possible configuration:
 All types are fully exported:
 
 ```typescript
-import { TextEncoder, TextEncoderEncodeOptions, EncodeIntoResult } from 'text-encoder'
+import { TextEncoder, TextEncoderEncodeOptions, EncodeIntoResult } from 'text-encoder-2'
 ```
 
 ## Development

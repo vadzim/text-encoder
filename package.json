@@ -1,5 +1,5 @@
 {
-  "name": "text-encoder",
+  "name": "text-encoder-2",
   "version": "1.0.0",
   "description": "TextEncoder implementation with stream support for proper surrogate pair handling",
   "main": "dist/index.js",
