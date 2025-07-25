@@ -79,8 +79,6 @@ encode(chunk2, {stream: true}) → "🚀 World"   // Combined into correct emoji
 Final result:                    "Hello 🚀 World"
 ```
 
-This library buffers the high surrogate until the next chunk arrives.
-
 ## License
 
 MIT
