@@ -52,7 +52,7 @@ Same as standard TextEncoder plus optional `stream` parameter:
 class TextEncoder {
   encode(input?: string, options?: { stream?: boolean }): Uint8Array
   encodeInto(input: string, destination: Uint8Array, options?: { stream?: boolean }): { read: number, written: number }
-  readonly encoding: 'utf-8'
+  get encoding(): 'utf-8'
 }
 ```
 

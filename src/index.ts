@@ -15,7 +15,7 @@ export class TextEncoder {
 		// Constructor takes no parameters, matching standard TextEncoder
 	}
 
-	get encoding(): string {
+	get encoding(): 'utf-8' {
 		return 'utf-8'
 	}
 
