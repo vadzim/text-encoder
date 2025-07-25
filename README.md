@@ -1,8 +1,8 @@
 # text-encoder-2
 
-This is a replacement for the standard TextEncoder with fixed surrogate pairs support.
+This is a replacement for the standard TextEncoder with fixed **surrogate pairs (emojis)** support.
 
-The standard TextEncoder can't handle Unicode surrogate pairs that are split across chunks when streaming data. This library fixes that by adding a `stream` option that properly buffers incomplete surrogate pairs.
+The standard TextEncoder can't handle Unicode **surrogate pairs (emojis)** that are split across chunks when streaming data. This library fixes that by adding a `stream` option that properly buffers incomplete surrogate pairs.
 
 **✅ 92% test coverage with 28 comprehensive test cases covering all edge cases**
 
@@ -28,9 +28,9 @@ const bytes = encoder.encode('Hello 🚀')
 ```typescript
 const encoder = new TextEncoder()
 
-// Split surrogate pair for 𝕳 character
-const part1 = '\uD835'  // High surrogate
-const part2 = '\uDD73'  // Low surrogate
+// Split surrogate pair for 🚀 character
+const part1 = '\uD83D'  // High surrogate
+const part2 = '\uDE80'  // Low surrogate
 
 // Without stream mode - broken
 bytes1 = encoder.encode(part1) // ❌ [239, 191, 189] (replacement character)
@@ -38,7 +38,7 @@ bytes2 = encoder.encode(part2) // ❌ [239, 191, 189] (replacement character)
 
 // With stream mode - fixed
 bytes1 = encoder.encode(part1, { stream: true }) // ✅ [] (buffered)
-bytes2 = encoder.encode(part2, { stream: true }) // ✅ [240, 157, 149, 179] (correct 𝕳)
+bytes2 = encoder.encode(part2, { stream: true }) // ✅ [240, 159, 154, 128] (correct 🚀)
 
 // End stream to flush any pending data
 rest = encoder.encode('', { stream: false })
